@@ -1,3 +1,7 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+
 // var heading = document.createElement("h1", {id:"heading"});
 // heading.innerHTML = "heading from app js!!";
 // document.getElementById("root").appendChild(heading);
