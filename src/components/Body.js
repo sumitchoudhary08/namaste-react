@@ -51,17 +51,19 @@ const Body = () => {
 
   return (
     <div className="body">
-      <div
-        className="top-rest"
-        onClick={() => {
-          const filteredData = restt.filter((restarunat) => {
-            return restarunat.info?.avgRating > 4.3;
-          });
+      <div>
+        <button
+          className="top-rest"
+          onClick={() => {
+            const filteredData = restt.filter((restarunat) => {
+              return restarunat.info?.avgRating > 4.3;
+            });
 
-          setRestt(filteredData);
-        }}
-      >
-        Top Restaurant
+            setRestt(filteredData);
+          }}
+        >
+          Top Restaurant
+        </button>
       </div>
       <div className="rest-container">
         {restt.map((restraunt) => (
