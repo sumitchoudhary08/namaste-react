@@ -3,12 +3,12 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 
 const Body = () => {
-  //const [rest, setRest] = useState(resList);
+  const [rest, setRest] = useState(resList);
 
-  const arr = useState(resList);
-  const [restt, setRestt] = arr;
-  //const restt = arr[0];
-  // const setRestt = arr[1];
+  //const arr = useState(resList);
+  //const [rest, setRest] = arr;
+  //const rest = arr[0];
+  // const setRest = arr[1];
 
   //   let rest = [
   //     {
@@ -55,18 +55,18 @@ const Body = () => {
         <button
           className="top-rest"
           onClick={() => {
-            const filteredData = restt.filter((restarunat) => {
+            const filteredData = rest.filter((restarunat) => {
               return restarunat.info?.avgRating > 4.3;
             });
 
-            setRestt(filteredData);
+            setRest(filteredData);
           }}
         >
           Top Restaurant
         </button>
       </div>
       <div className="rest-container">
-        {restt.map((restraunt) => (
+        {rest.map((restraunt) => (
           <RestaurantCard key={restraunt.info.id} resData={restraunt} />
         ))}
       </div>
