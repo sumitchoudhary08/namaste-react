@@ -24,13 +24,12 @@
     padding: 5px;
     margin: 5px;
     width: 180px;
-    border: 1px solid black;
-    background-color: lightgray;
+    background-color: #f0f0f0;
 }
 
 .rest-card:hover{
     cursor: pointer;
-    border: 1px solid red;
+    border: 1px solid black;
 }
 
 .rest-container{
@@ -40,7 +39,7 @@
 
 .res-logo{
     width: 100%;
-    min-height: 180px;
+    height: 150px;
 }
 
 .search{
@@ -50,4 +49,16 @@
 .top-rest{
     margin: 10px;
     cursor: pointer;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    margin: 10px;
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
 }
