@@ -4,11 +4,13 @@ import resList from "../utils/mockData";
 import { REST_LIST_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [rest, setRest] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -73,6 +75,10 @@ const Body = () => {
   //     //return <h3>Loading....</h3>;
   //     return <Shimmer />;
   //   }
+
+  if (!onlineStatus) {
+    return <div>you are offline</div>;
+  }
 
   return rest.length === 0 ? (
     <Shimmer />
