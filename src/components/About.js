@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import User from "./User";
+import UserClass from "./UserClass";
 
 const About = () => {
   const [profile, setProfile] = useState({
@@ -8,7 +10,14 @@ const About = () => {
   });
 
   useEffect(() => {
-    fetchData();
+    //fetchData();
+    const timer = setInterval(() => {
+      console.log("timerr started");
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   const fetchData = async () => {
@@ -20,9 +29,11 @@ const About = () => {
 
   return (
     <div>
-      <img src={profile.avatar_url} alt="profileImg" />
+      {/* <img src={profile.avatar_url} alt="profileImg" />
       <h3>{profile.name}</h3>
-      <h3>{profile.created_at}</h3>
+      <h3>{profile.created_at}</h3> */}
+      <User name={"Sumit fun"} location={"R1"} />
+      <UserClass name={"Sumit class"} location={"R2"} />
     </div>
   );
 };

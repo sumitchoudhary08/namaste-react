@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import AboutClass from "./components/AboutClass";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenus from "./components/RestaurantMenus";

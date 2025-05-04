@@ -62,3 +62,9 @@
     height: 400px;
     background-color: #f0f0f0;
 }
+
+
+.userContainer{
+    border: 1px solid black;
+    margin: 30px 0;
+}
