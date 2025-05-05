@@ -84,35 +84,37 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div>
-        <input
-          type="text"
-          className="search-input"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        />
-        <button
-          className="search-btn"
-          onClick={() => {
-            const fData = rest.filter(
-              (restraunt) =>
-                restraunt.info.cuisines.some((cuisine) =>
-                  cuisine.toLowerCase().includes(searchText.toLowerCase())
-                ) ||
-                restraunt.info.name
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase())
-            );
-            setFilteredData(fData);
-          }}
-        >
-          search
-        </button>
+      <div className="flex m-2 items-center">
+        <div>
+          <input
+            type="text"
+            className="border"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            className="bg-green-100 p-2 mr-1 rounded-lg"
+            onClick={() => {
+              const fData = rest.filter(
+                (restraunt) =>
+                  restraunt.info.cuisines.some((cuisine) =>
+                    cuisine.toLowerCase().includes(searchText.toLowerCase())
+                  ) ||
+                  restraunt.info.name
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase())
+              );
+              setFilteredData(fData);
+            }}
+          >
+            search
+          </button>
+        </div>
 
         <button
-          className="top-rest"
+          className="bg-blue-100 ml-4 p-2 rounded-lg"
           onClick={() => {
             const ffData = rest.filter((restarunat) => {
               return restarunat.info?.avgRating > 4.2;
@@ -124,7 +126,7 @@ const Body = () => {
           Top Restaurant
         </button>
       </div>
-      <div className="rest-container">
+      <div className="flex flex-wrap place-content-center">
         {filteredData.map((restraunt) => (
           <Link key={restraunt.info.id} to={"/restaurant/" + restraunt.info.id}>
             <RestaurantCard resData={restraunt} />

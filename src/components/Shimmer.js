@@ -1,12 +1,17 @@
 const Shimmer = () => {
   return (
-    <div className="shimmer-container">
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
-      <div className="card"></div>
+    <div className="flex flex-wrap place-content-center">
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
+      <div className="w-55 m-2 h-80 bg-gray-100"></div>
     </div>
   );
 };

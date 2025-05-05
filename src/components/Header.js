@@ -13,27 +13,28 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="header">
-      <div className="logo">
+    <div className="flex bg-pink-50 justify-between p-2 sm:bg-yellow-50 md:bg-green-50">
+      <div className="w-20">
         <img className="logo-img" src={LOGO_URL} alt="logo" />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>OnlineStatus: {onlineStatus ? "🟢" : "🔴"}</li>
-          <li>
+      <div className="flex items-center">
+        <ul className="flex">
+          <li className=" px-2">OnlineStatus: {onlineStatus ? "🟢" : "🔴"}</li>
+          <li className=" px-2">
             <Link to={"/"}>Home</Link>
           </li>
-          <li>
+          <li className=" px-2">
             <Link to={"/about"}>About</Link>
           </li>
-          <li>
+          <li className=" px-2">
             <Link to={"/contact"}>Contact</Link>
           </li>
-          <li>
+          <li className=" px-2">
             <Link to={"/grocery"}>Grocery</Link>
           </li>
-          <li>
+          <li className=" px-2">
             <button
+              className=" bg-gray-200 p-1.5 border rounded-lg"
               onClick={() => {
                 setBtnName(btnName === "Login" ? "Logout" : "Login");
               }}
