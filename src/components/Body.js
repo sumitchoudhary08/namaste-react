@@ -1,16 +1,19 @@
-import { useState, useEffect } from "react";
-import RestaurantCard from "./RestaurantCard";
+import { useState, useEffect, useContext } from "react";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { REST_LIST_API } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [rest, setRest] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const onlineStatus = useOnlineStatus();
+  const onlineStatus = useOnlineStatus(); //Custom hook
+  const RestaurantCardWithLabel = withPromotedLabel(RestaurantCard); //HOC
+  const { loggedInUser, setName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -125,11 +128,25 @@ const Body = () => {
         >
           Top Restaurant
         </button>
+        <div>
+          <label>UserName</label>
+          <input
+            className="border border-black px-2"
+            type="text"
+            value={loggedInUser}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
       </div>
+
       <div className="flex flex-wrap place-content-center">
         {filteredData.map((restraunt) => (
           <Link key={restraunt.info.id} to={"/restaurant/" + restraunt.info.id}>
-            <RestaurantCard resData={restraunt} />
+            {restraunt.info.avgRating > 4.3 ? (
+              <RestaurantCardWithLabel resData={restraunt} />
+            ) : (
+              <RestaurantCard resData={restraunt} />
+            )}
           </Link>
         ))}
       </div>
