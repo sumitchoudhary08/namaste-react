@@ -8,10 +8,16 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const restInfo = useRestrauntMenus(resId);
   const [showIndex, setShowIndex] = useState(0);
+  const [expand, setExpand] = useState(true);
 
-  const handleFromParent = () => {
-    console.log("hadle form parent");
-    setShow(!show);
+  const handleShow = (index) => {
+    if (index === showIndex) {
+      setExpand(!expand);
+    } else {
+      setExpand(true);
+    }
+
+    setShowIndex(index);
   };
 
   if (restInfo === null) {
@@ -32,8 +38,6 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
-  // console.log(categories);
-
   return (
     <div>
       <div className=" text-center ">
@@ -48,17 +52,10 @@ const RestaurantMenu = () => {
           <RestaurantCategory
             key={category?.card?.card?.title}
             data={category?.card?.card}
-            showItems={index === showIndex}
-            setShowIndex={() => setShowIndex(index)}
+            showItems={index === showIndex && expand}
+            setShowIndex={() => handleShow(index)}
           />
         ))}
-
-        {/* // {itemCards?.map((item) => (
-          //   <li key={item.card.info.id}>
-          //     {item.card.info.name} - Rs.{" "}
-          //     {(item.card.info.price || item.card.info.defaultPrice) / 100}
-          //   </li>
-          // ))} */}
       </div>
     </div>
   );
