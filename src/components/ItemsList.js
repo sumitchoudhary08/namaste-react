@@ -1,5 +1,14 @@
 import { REST_LOGO_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+
 const ItemsList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const addItemCartHandler = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <div>
       {items.map((item) => {
@@ -20,7 +29,10 @@ const ItemsList = ({ items }) => {
             </div>
             <div className="w-3/12 flex items-center">
               <div>
-                <button className="absolute bg-black text-white px-2 rounded-md">
+                <button
+                  className="absolute bg-black text-white px-2 rounded-md"
+                  onClick={() => addItemCartHandler(item)}
+                >
                   Add
                 </button>
               </div>

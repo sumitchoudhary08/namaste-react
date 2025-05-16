@@ -28,6 +28,7 @@ const Body = () => {
         ?.restaurants;
     setRest(res);
     setFilteredData(res);
+    console.log();
   };
 
   //const arr = useState(resList);

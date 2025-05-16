@@ -3,11 +3,13 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.items);
 
   console.log("comp rendered");
   useEffect(() => {
@@ -33,6 +35,16 @@ const Header = () => {
           </li>
           <li className=" px-2">
             <Link to={"/grocery"}>Grocery</Link>
+          </li>
+          <li className=" px-2 font-bold">
+            <Link to={"/cart"}>
+              <div className="px-2 relative">
+                <span>🛒</span>{" "}
+                <span className="absolute bg-red-400 rounded-full h-5 w-5 text-white text-xs flex items-center justify-center -top-2 -right-2">
+                  {cartItems.length}
+                </span>
+              </div>
+            </Link>
           </li>
           <li className=" px-2">
             <button
