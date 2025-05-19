@@ -26,9 +26,9 @@ const Body = () => {
     var res =
       jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
+    console.log(jsonData);
     setRest(res);
     setFilteredData(res);
-    console.log();
   };
 
   //const arr = useState(resList);
@@ -91,6 +91,7 @@ const Body = () => {
       <div className="flex m-2 items-center">
         <div>
           <input
+            data-testid="searchInput"
             type="text"
             className="border"
             value={searchText}

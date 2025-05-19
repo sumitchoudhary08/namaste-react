@@ -14,6 +14,7 @@ const ItemsList = ({ items }) => {
       {items.map((item) => {
         return (
           <div
+            data-testid="foodItems"
             className=" p-2 m-2 border-gray-200 border-b-2 text-left flex"
             key={item.card.info.id}
           >
@@ -33,7 +34,7 @@ const ItemsList = ({ items }) => {
                   className="absolute bg-black text-white px-2 rounded-md"
                   onClick={() => addItemCartHandler(item)}
                 >
-                  Add
+                  Add +
                 </button>
               </div>
               <img

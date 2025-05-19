@@ -11,9 +11,9 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
 
-  console.log("comp rendered");
+  //console.log("comp rendered");
   useEffect(() => {
-    console.log("useEffect Called");
+    //console.log("useEffect Called");
   }, [btnName]);
 
   return (
